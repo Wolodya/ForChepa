@@ -1,0 +1,22 @@
+﻿@model ForChepa.Models.Third
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Country <br />
+        @Html.DropDownListFor(model => model.CountriesId, ViewBag.Countries as SelectList)
+        </p>
+        <p>
+            City    <br />
+            @Html.DropDownListFor(model => model.CitiesId, ViewBag.Cities as SelectList)
+            </p>
+            <br /><br />
+            <input type="submit" value="Add" />
+            }

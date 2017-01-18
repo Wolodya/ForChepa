@@ -1,0 +1,34 @@
+﻿
+@model ForChepa.Models.Third
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Third</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+       
+        <p>
+            Country <br />
+            @Html.DropDownListFor(model => model.CountriesId, ViewBag.Countries as SelectList)
+        </p>
+        <p>
+            City <br />
+            @Html.DropDownListFor(model => model.CitiesId, ViewBag.Cities as SelectList)
+        </p>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("return", "Index")
+</div>
+

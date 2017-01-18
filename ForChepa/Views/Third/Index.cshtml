@@ -1,0 +1,52 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<ForChepa.Models.Third>
+@*@model IEnumerable<ForChepa.Models.Third>*@
+@{
+    ViewBag.Title = "Third";
+}
+
+<h2>Cities</h2>
+<p>
+    @Html.ActionLink("Add third", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Filter : @Html.TextBox("filter",ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name Country</th>
+        <th>Name City</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Countries.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cities.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) 
+                @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                @Html.ActionLink("Подробнее", "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+<br/>
+Page @(Model.PageCount<Model.PageNumber ?0:Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model,page=>Url.Action("Index",new { page,currentFilter=ViewBag.CurrentFilter}))

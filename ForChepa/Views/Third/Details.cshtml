@@ -1,0 +1,29 @@
+﻿
+
+@model ForChepa.Models.Third
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+
+<div>
+    <p>
+        Country <br />
+        @Html.DisplayFor(modelItem => modelItem.Countries.Name)
+    </p>
+    <p>
+        City <br />
+        @Html.DisplayFor(modelItem => modelItem.Cities.Name)
+    </p>
+
+
+
+
+
+   
+</div>
+
+

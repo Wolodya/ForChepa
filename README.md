@@ -1,4 +1,5 @@
-2# ForChepa
+###ForChepa###
+
 Для запуску необхідно змінити рядок підключення у кореневому WebConfig, а саме - ```connectionString="Data Source=(LocalDB)\MSSQLLocalDB;```.
 В даному випадку, це підключення до MSSQL Server 2014. Для  MSSQL Server 2014 необхідно додати версію - ```connectionString="Data Source=(LocalDB))\v11.0\MSSQLLocalDB;```
 
@@ -131,16 +132,18 @@ Page @(Model.PageCount<Model.PageNumber ?0:Model.PageNumber) of @Model.PageCount
 ```
 
 Щоб побачити в дії перейдіть на вкладку Third
-картинка
 
-Для редагування натисніть *редактировать*. В випадаючому списку відобразяться старі значення.
-картинка
+![index](https://github.com/Wolodya/ForChepa/blob/master/ForChepa/SnapShots/index.PNG)
+
+- Для редагування натисніть *редактировать*. В випадаючому списку відобразяться старі значення.
+
+![index](https://github.com/Wolodya/ForChepa/blob/master/ForChepa/SnapShots/edit.PNG)
+
 Редагування здійснюється за допомогою 2 методів. Спочатку отримуємо відповідний запис, перевіряючи його наявність. Id отримуємо get'ом
 ```csharp
 [HttpGet]
         public ActionResult Edit(int? id)
-        {
-            if (id == null)
+        {            if (id == null)
             {
                 return HttpNotFound();
             }
@@ -166,7 +169,9 @@ Page @(Model.PageCount<Model.PageNumber ?0:Model.PageNumber) of @Model.PageCount
             return RedirectToAction("Index");
         }
 ```
-Для видалення, задля безпеки, аналогічно
+
+- Для видалення, задля безпеки, аналогічно
+
 ```csharp
 [HttpGet]
         public ActionResult Delete(int id)
@@ -195,10 +200,13 @@ Page @(Model.PageCount<Model.PageNumber ?0:Model.PageNumber) of @Model.PageCount
             return RedirectToAction("Index");
         }
 ```
-картинка
+
+![index](https://github.com/Wolodya/ForChepa/blob/master/ForChepa/SnapShots/delete.PNG)
  
 Для детального перегляду натисніть *подробнее*
-картинка
+
+![index](https://github.com/Wolodya/ForChepa/blob/master/ForChepa/SnapShots/read.PNG)
+
 ```csharp
 public ActionResult Details(int? id)
         {
@@ -216,8 +224,10 @@ public ActionResult Details(int? id)
             return View(th);
         }
 ```
+
 Щоб додати запис натисніть *Add third*
-картинка
+
+![index](https://github.com/Wolodya/ForChepa/blob/master/ForChepa/SnapShots/add.PNG)
 
 ```csharp
   [HttpGet]
@@ -241,4 +251,15 @@ public ActionResult Details(int? id)
 В першому методі передаєтсья перелік міст та країн, а другий зберігає сам запис
 
 Для фільтрації введіть назву міста або країни і натисніть *search*
-картинка
+
+![index](https://github.com/Wolodya/ForChepa/blob/master/ForChepa/SnapShots/filter.PNG)
+
+3) Висновок
+Для виконання 1 частини було витрачено 0.1 годин. 
+Для виконання 2 витрачено 6 годин.
+- Зроблено
+Було виконано все відповідно до тз.
+- Не зроблено
+1) недоримання термінів. Причина - багато часу було витрачено на вивчення побічних матеріалів
+2) застосування helper для CRUD. Причина - дивись 1
+3) підключення bootstrap. Причина - дивись 1

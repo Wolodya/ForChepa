@@ -172,8 +172,6 @@
     </Compile>
     <Compile Include="Models\Cities.cs" />
     <Compile Include="Models\Countries.cs" />
-    <Compile Include="Models\Paginator.cs" />
-    <Compile Include="Models\PaginatorIncaps.cs" />
     <Compile Include="Models\Third.cs" />
     <Compile Include="Models\TopographyContext.cs" />
     <Compile Include="Models\TopoInitializer.cs" />

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForChepa", "ForChepa\ForChe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForChepaDAL", "ForChepaDAL\ForChepaDAL.csproj", "{01F1CA08-6D18-4000-A733-4390315D1927}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForChepaBLL", "ForChepaBLL\ForChepaBLL.csproj", "{A0CBCC65-56A8-44E0-87ED-9A682479CFA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{01F1CA08-6D18-4000-A733-4390315D1927}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01F1CA08-6D18-4000-A733-4390315D1927}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01F1CA08-6D18-4000-A733-4390315D1927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0CBCC65-56A8-44E0-87ED-9A682479CFA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0CBCC65-56A8-44E0-87ED-9A682479CFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0CBCC65-56A8-44E0-87ED-9A682479CFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0CBCC65-56A8-44E0-87ED-9A682479CFA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

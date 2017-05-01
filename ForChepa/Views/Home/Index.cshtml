@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ForChepa.Models.Cities>
+﻿@model IEnumerable<ForChepa.Models.CityViewModel>
 @{
     ViewBag.Title = "Cities";
 }
@@ -23,9 +23,9 @@
             </td>
             
             <td>
-                @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) 
-                @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
-                @Html.ActionLink("Подробнее", "Details", new { id = item.Id })
+                                @Html.ActionLink("Редактировать", "Edit", new { id = item.Id })
+        @*  @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+          @Html.ActionLink("Подробнее", "Details", new { id = item.Id })*@
             </td>
         </tr>
     }

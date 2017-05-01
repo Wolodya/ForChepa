@@ -19,6 +19,7 @@ namespace ForChepaDAL.Repositories
         public void Create(Cities item)
         {
             tc.Cities.Add(item);
+            tc.SaveChanges();
         }
 
         public void Delete(int id)
@@ -48,6 +49,7 @@ namespace ForChepaDAL.Repositories
         public void Update(Cities item)
         {
             tc.Entry(item).State = EntityState.Modified;
+            tc.SaveChanges();
         }
     }
 }

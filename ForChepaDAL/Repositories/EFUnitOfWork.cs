@@ -10,7 +10,7 @@ using ForChepaDAL.Entities;
 
 namespace ForChepaDAL.Repositories
 {
-    class EFUnitOfWork : IUnitOfWork
+    public class EFUnitOfWork : IUnitOfWork
     {
         private TopographyContext tc;
         private CitiesRepository citiesRepository;

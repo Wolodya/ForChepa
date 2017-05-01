@@ -8,9 +8,11 @@ using ForChepaDAL.Interfaces;
 using ForChepaBLL.DTO;
 using ForChepaBLL.Interfaces;
 using AutoMapper;
+using System.Linq.Expressions;
+
 namespace ForChepaBLL.Services
 {
-    class CitiesService:ITopographyService<CitiesDTO>
+    public class CitiesService : ITopographyService
     {
         IUnitOfWork db { get; set; }
         public CitiesService(IUnitOfWork uow)
@@ -19,10 +21,11 @@ namespace ForChepaBLL.Services
         }
 
         public IEnumerable<CitiesDTO> GetAll()
-        {  Mapper.Initialize(cfg => cfg.CreateMap<Cities, CitiesDTO>());
-                return Mapper.Map<IEnumerable<Cities>, List<CitiesDTO>>(db.Cities.GetAll());
-           
-            
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<Cities, CitiesDTO>());
+            return Mapper.Map<IEnumerable<Cities>, List<CitiesDTO>>(db.Cities.GetAll());
+
+
         }
 
         public CitiesDTO Get(int id)
@@ -35,29 +38,39 @@ namespace ForChepaBLL.Services
 
         public IEnumerable<CitiesDTO> Find(Func<CitiesDTO, bool> predicate)
         {
-           
-            //Mapper.Initialize(cfg => cfg.CreateMap<Cities, CitiesDTO>());
 
-            //return Mapper.Map<Cities, CitiesDTO>(db.Cities.Find(predicate));
-          
+            Mapper.Initialize(cfg => cfg.CreateMap<Func<CitiesDTO, bool>, Func<Cities, bool>>());
+
+            var exp = Mapper.Map<Func<Cities, bool>>(predicate);
+            //var cityPredicate = Mapper.Map<Func<CitiesDTO, bool>, Func<Cities, bool>>(predicate);
+            var cities = db.Cities.Find(exp);
+            var citiesDTO = Mapper.Map<IEnumerable<Cities>, IEnumerable<CitiesDTO>>(cities);
+            return citiesDTO;
         }
 
-        public void Create(Cities item)
+        public void Create(CitiesDTO item)
         {
-           
-           Mapper.Initialize(cfg => cfg.CreateMap<Cities, CitiesDTO>());
+            Mapper.Initialize(cfg => cfg.CreateMap<CitiesDTO, Cities>());
 
-           
+            var city = Mapper.Map<CitiesDTO, Cities>(item);
+            db.Cities.Create(city);
+
+
         }
 
         public void Update(CitiesDTO item)
         {
-            throw new NotImplementedException();
+            Mapper.Initialize(cfg => cfg.CreateMap<Cities, CitiesDTO>());
+            var city = Mapper.Map<CitiesDTO, Cities>(item);
+            db.Cities.Update(city);
+
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Mapper.Initialize(cfg => cfg.CreateMap<Cities, CitiesDTO>());
+            db.Cities.Delete(id);
+
         }
     }
 }

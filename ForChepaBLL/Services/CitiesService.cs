@@ -41,9 +41,9 @@ namespace ForChepaBLL.Services
 
             Mapper.Initialize(cfg => cfg.CreateMap<Func<CitiesDTO, bool>, Func<Cities, bool>>());
 
-            var exp = Mapper.Map<Func<Cities, bool>>(predicate);
-            //var cityPredicate = Mapper.Map<Func<CitiesDTO, bool>, Func<Cities, bool>>(predicate);
-            var cities = db.Cities.Find(exp);
+         //   var exp = Mapper.Map<Func<Cities, bool>>(predicate);
+            var cityPredicate = Mapper.Map<Func<CitiesDTO, bool>, Func<Cities, bool>>(predicate);
+            var cities = db.Cities.Find(cityPredicate);
             var citiesDTO = Mapper.Map<IEnumerable<Cities>, IEnumerable<CitiesDTO>>(cities);
             return citiesDTO;
         }
